@@ -4,7 +4,7 @@ require __DIR__ . '/../partials/header.php';
 ?>
 
 <!-- Ajout du fichier CSS -->
-<link rel="stylesheet" href="/css/modules_index.css">
+<link rel="stylesheet" href="/css/module_index.css">
 
 <main>
     <div class="module-container">
@@ -16,7 +16,7 @@ require __DIR__ . '/../partials/header.php';
                             <h1>Bonjour !</h1>
                             <h2>Nous allons faire des <?= htmlspecialchars($title) ?>.</h2>
                             <h3>Mais avant, Quel est ton prénom ?</h3>
-                            <form action="index.php?controller=module&action=start&type=<?= htmlspecialchars($_GET['type']) ?>" method="post">
+                            <form action="index.php?controller=module&action=question&type=<?= htmlspecialchars($_GET['type']) ?>" method="post">
                                 <input type="text" id="prenom" name="prenom" autocomplete="off" autofocus required>
                                 <input type="submit" value="Commencer">
                             </form>
