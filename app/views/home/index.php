@@ -1,41 +1,39 @@
 <?php
-// app/Views/home/index.php
-// Le contrôleur HomeController::index() va appeler ce fichier.
-
-$title = "Accueil"; // Spécifie le titre (utilisé par header.php)
-// On inclut le header
+$title = "Accueil"; // Spécifie le titre
 require __DIR__ . '/../partials/header.php';
 ?>
 
+<!-- Lien vers le fichier CSS externe -->
+<link rel="stylesheet" href="/css/index.css">
+
 <!-- Contenu principal -->
-<center>
-    <table border="0" cellpadding="0" cellspacing="0">
+<main>
+    <table class="table-container" border="0" cellpadding="0" cellspacing="0">
         <tr>
-            <td style="width:1000px;height:430px;background-image:url('/images/NO.jpg');background-repeat:no-repeat;">
+            <td class="module-cell" style="background-image:url('/images/NO.jpg');">
                 <center>
                     <h1>Bonjour !</h1>
                     <h2>Que veux-tu faire ?</h2>
 
-                    <table border="1" cellpadding="15" 
-                           style="border-collapse:collapse;border: 15px solid #ff7700;background-color:#d6d6d6;">
+                    <table class="modules-table">
                         <tr>
                             <td>
                                 <center>
-                                    <a href="modules/addition/index.php" style="color:black;font-weight:bold;text-decoration:none">
+                                    <a href="index.php?controller=module&action=show&type=addition">
                                         <img src="/images/addition.png"><br />Addition
                                     </a>
                                 </center>
                             </td>
                             <td>
                                 <center>
-                                    <a href="modules/soustraction/index.php" style="color:black;font-weight:bold;text-decoration:none">
+                                    <a href="index.php?controller=module&action=show&type=soustraction">
                                         <img src="/images/soustraction.png"><br />Soustraction
                                     </a>
                                 </center>
                             </td>
                             <td>
                                 <center>
-                                    <a href="modules/multiplication/index.php" style="color:black;font-weight:bold;text-decoration:none">
+                                    <a href="index.php?controller=module&action=show&type=multiplication">
                                         <img src="/images/multiplication.png"><br />Multiplication
                                     </a>
                                 </center>
@@ -44,21 +42,21 @@ require __DIR__ . '/../partials/header.php';
                         <tr>
                             <td>
                                 <center>
-                                    <a href="modules/dictee/index.php" style="color:black;font-weight:bold;text-decoration:none">
+                                    <a href="index.php?controller=module&action=show&type=dictee">
                                         <img src="/images/dictee.png"><br />Dictée
                                     </a>
                                 </center>
                             </td>
                             <td>
                                 <center>
-                                    <a href="modules/conjugaison_verbe/index.php" style="color:black;font-weight:bold;text-decoration:none">
+                                    <a href="index.php?controller=module&action=show&type=conjugaison_verbe">
                                         <img src="/images/conjugaison_verbe.png"><br />Conjugaison<br />de verbes
                                     </a>
                                 </center>
                             </td>
                             <td>
                                 <center>
-                                    <a href="modules/conjugaison_phrase/index.php" style="color:black;font-weight:bold;text-decoration:none">
+                                    <a href="index.php?controller=module&action=show&type=conjugaison_phrase">
                                         <img src="/images/conjugaison_phrase.png"><br />Conjugaison<br />de phrases
                                     </a>
                                 </center>
@@ -67,16 +65,15 @@ require __DIR__ . '/../partials/header.php';
                     </table>
                 </center>
             </td>
-            <td style="width:280px;height:430px;background-image:url('/images/NE.jpg');background-repeat:no-repeat;"></td>
+            <td class="side-cell" style="background-image:url('/images/NE.jpg');"></td>
         </tr>
         <tr>
-            <td style="width:1000px;height:323px;background-image:url('/images/SO.jpg');background-repeat:no-repeat;"></td>
-            <td style="width:280px;height:323px;background-image:url('/images/SE.jpg');background-repeat:no-repeat;"></td>
+            <td class="module-cell" style="background-image:url('/images/SO.jpg');"></td>
+            <td class="side-cell" style="background-image:url('/images/SE.jpg');"></td>
         </tr>
     </table>
-</center>
-<br />
+</main>
 
 <?php
-// On inclut le footer
 require __DIR__ . '/../partials/footer.php';
+?>
