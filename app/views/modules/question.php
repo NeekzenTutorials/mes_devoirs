@@ -14,7 +14,7 @@ require __DIR__ . '/../partials/header.php';
                     <center>
                         <div class="form-container">
                             <h1>Question <?= $_SESSION['nbQuestion'] ?></h1>
-                            <h2><?= htmlspecialchars($questionData['question']) ?></h2>
+                            <h2><?= $questionData['question'] ?></h2>
 
                             <!-- Si c'est une dictée avec audio -->
                             <?php if (isset($questionData['audio'])): ?>

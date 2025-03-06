@@ -27,7 +27,6 @@ class ModuleController
 
     public function question()
     {
-        session_start();
         $_SESSION['origine'] = "question";
 
         if (!isset($_SESSION['prenom']) || empty($_SESSION['prenom'])) {
