@@ -56,12 +56,24 @@ CREATE TABLE Encadre(
    FOREIGN KEY(id_utilisateur_1) REFERENCES Enfants(id_utilisateur)
 );
 
+CREATE TABLE Sessions (
+   id_session INT AUTO_INCREMENT,
+   id_utilisateur INT NOT NULL,
+   date_creation DATETIME DEFAULT CURRENT_TIMESTAMP,
+   PRIMARY KEY(id_session),
+   FOREIGN KEY(id_utilisateur) REFERENCES Utilisateurs(id_utilisateur) ON DELETE CASCADE
+);
+
 CREATE TABLE Realise(
    id_utilisateur INT,
    id_exercice INT,
+   id_session INT NOT NULL,
+   num_question INT NOT NULL,
    reponse VARCHAR(50),
-   duree DATETIME,
-   PRIMARY KEY(id_utilisateur, id_exercice),
-   FOREIGN KEY(id_utilisateur) REFERENCES Enfants(id_utilisateur),
-   FOREIGN KEY(id_exercice) REFERENCES Exercices(id_exercice)
+   duree INT,
+   valide TINYINT(1),
+   PRIMARY KEY(id_utilisateur, id_exercice, id_session, num_question),
+   FOREIGN KEY(id_utilisateur) REFERENCES Enfants(id_utilisateur) ON DELETE CASCADE,
+   FOREIGN KEY(id_exercice) REFERENCES Exercices(id_exercice) ON DELETE CASCADE,
+   FOREIGN KEY(id_session) REFERENCES Sessions(id_session) ON DELETE CASCADE
 );

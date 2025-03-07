@@ -1,0 +1,80 @@
+/* public/css/home.css */
+
+/* Garde le fond gris et occupe toute la hauteur */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: grey;
+    font-family: sans-serif;
+    
+}
+
+/* Centrer le contenu principal */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Table principale */
+.table-container {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1280px;
+}
+
+/* Zones d'affichage des modules */
+.module-cell {
+    width: 1000px;
+    height: 430px;
+    background-repeat: no-repeat;
+}
+
+/* Zone d'arrière-plan droite */
+.side-cell {
+    width: 280px;
+    height: 430px;
+    background-repeat: no-repeat;
+}
+
+/* Conteneur des boutons de modules */
+.modules-table {
+    border-collapse: collapse;
+    border: 15px solid #ff7700;
+    background-color: #d6d6d6;
+    margin-top: 20px;
+    width: 90%;
+    text-align: center;
+}
+
+/* Style des cellules */
+.modules-table td {
+    padding: 15px;
+}
+
+/* Liens et images */
+.modules-table a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+}
+
+.modules-table img {
+    max-width: 100px;
+}
+
+footer {
+    background-color: #45a1ff;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
+    text-align: center;
+    width: 100%;
+}
