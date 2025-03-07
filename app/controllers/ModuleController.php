@@ -22,7 +22,7 @@ class ModuleController
         $subtitle = isset($modules[$type]) ? $modules[$type]['subtitle'] : 'Amuse-toi en pratiquant !';
 
         // Charge la vue avec les variables dynamiques
-        require __DIR__ . '/../Views/modules/index.php';
+        require __DIR__ . '/../views/modules/index.php';
     }
 
     public function question()
@@ -39,10 +39,56 @@ class ModuleController
 
         $_SESSION['nbQuestion'] = isset($_SESSION['nbQuestion']) ? $_SESSION['nbQuestion'] + 1 : 1;
 
-        require_once __DIR__ . '/../Models/Module.php';
+        require_once __DIR__ . '/../models/module.php';
         $module = new Module();
         $questionData = $module->generateQuestion($_GET['type']);
 
-        require __DIR__ . '/../Views/modules/question.php';
+        require __DIR__ . '/../views/modules/question.php';
     }
+
+    public function correction()
+    {
+        require_once __DIR__ . '/../models/db.php';
+        require_once __DIR__ . '/../models/module.php';
+
+        if (!isset($_SESSION['id_utilisateur'])) {
+            header("Location: index.php?controller=auth&action=login");
+            exit();
+        }
+
+        // Récupérer les données du formulaire
+        $type = $_GET['type'];
+        $reponseUtilisateur = isset($_POST['mot']) ? trim($_POST['mot']) : "";
+        $reponseAttendue = isset($_POST['correction']) ? trim($_POST['correction']) : "";
+        $duree = isset($_POST['duree']) ? (int)$_POST['duree'] : 0;
+        $idUtilisateur = $_SESSION['id_utilisateur'];
+
+        // Vérifier si la réponse est correcte
+        $valide = (strcasecmp($reponseUtilisateur, $reponseAttendue) == 0) ? 1 : 0;
+
+        // Enregistrement de l'exercice en base de données
+        $db = Database::getConnection();
+
+        // Vérifier si l'exercice existe déjà dans la base
+        $stmt = $db->prepare("SELECT id_exercice FROM Exercices WHERE type = ? AND enonce = ? AND resultat = ?");
+        $stmt->execute([$type, $_POST['question'], $reponseAttendue]);
+        $exercice = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($exercice) {
+            $idExercice = $exercice['id'];
+        } else {
+            // Insérer l'exercice s'il n'existe pas encore
+            $stmt = $db->prepare("INSERT INTO Exercices (type, enonce, resultat) VALUES (?, ?, ?)");
+            $stmt->execute([$type, $_POST['question'], $reponseAttendue]);
+            $idExercice = $db->lastInsertId();
+        }
+
+        // Enregistrement de la tentative de l'utilisateur
+        $stmt = $db->prepare("INSERT INTO Realise (id_utilisateur, id_exercice, reponse, duree, valide) VALUES (?, ?, ?, ?, ?)");
+        $stmt->execute([$idUtilisateur, $idExercice, $reponseUtilisateur, $duree, $valide]);
+
+        // Affichage du résultat
+        require __DIR__ . '/../views/modules/result.php';
+    }
+
 }

@@ -26,6 +26,8 @@ require __DIR__ . '/../partials/header.php';
 
                             <form action="index.php?controller=module&action=correction&type=<?= htmlspecialchars($_GET['type']) ?>" method="post">
                                 <input type="hidden" name="correction" value="<?= htmlspecialchars($questionData['answer']) ?>">
+                                <input type="hidden" name="question" value="<?= htmlspecialchars($questionData['question']) ?>">
+                                <input type="hidden" id="duree" name="duree" value="0">
                                 <label for="mot">Ta réponse :</label>
                                 <input type="text" id="mot" name="mot" autocomplete="off" autofocus required>
                                 <input type="submit" value="Valider">
@@ -42,6 +44,14 @@ require __DIR__ . '/../partials/header.php';
         </table>
     </div>
 </main>
+
+<script>
+    let startTime = Date.now();
+    document.querySelector("form").addEventListener("submit", function () {
+        let endTime = Date.now();
+        document.getElementById("duree").value = Math.floor((endTime - startTime) / 1000);
+    });
+</script>
 
 <?php
 require __DIR__ . '/../partials/footer.php';

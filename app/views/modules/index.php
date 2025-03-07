@@ -1,6 +1,12 @@
 <?php
 $title = $title;
 require __DIR__ . '/../partials/header.php';
+
+// Vérifie si l'utilisateur est connecté
+if (!isset($_SESSION['id_utilisateur'])) {
+    header("Location: index.php?controller=auth&action=login");
+    exit();
+}
 ?>
 
 <!-- Ajout du fichier CSS -->
@@ -13,11 +19,20 @@ require __DIR__ . '/../partials/header.php';
                 <td class="module-cell" style="background-image:url('/images/NO.jpg');">
                     <center>
                         <div class="form-container">
-                            <h1>Bonjour !</h1>
+                            <h1>Bonjour <?= htmlspecialchars($_SESSION['prenom']) ?> !</h1>
                             <h2>Nous allons faire des <?= htmlspecialchars($title) ?>.</h2>
-                            <h3>Mais avant, Quel est ton prénom ?</h3>
+                            <h3>Choisissez le nombre de questions :</h3>
+
                             <form action="index.php?controller=module&action=question&type=<?= htmlspecialchars($_GET['type']) ?>" method="post">
-                                <input type="text" id="prenom" name="prenom" autocomplete="off" autofocus required>
+                                <label for="nb_questions">Nombre de questions :</label>
+                                <select name="nb_questions" id="nb_questions">
+                                    <option value="5">5</option>
+                                    <option value="10" selected>10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                </select>
+                                <br><br>
+
                                 <input type="submit" value="Commencer">
                             </form>
                         </div>
