@@ -1,0 +1,128 @@
+/* public/css/profil.css */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Le main occupe l'espace restant, poussant le footer tout en bas */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* centre verticalement le contenu */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Conteneur pour la partie "Mon Profil" 
+   On reprend l’aspect "form-container" */
+.form-container {
+    width: 400px;
+    background-color: white;
+    border-radius: 15px;
+    border: 10px solid #45a1ff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    text-align: left; /* On aligne le contenu à gauche pour un style plus lisible */
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+    margin: 0 auto;
+}
+
+/* Titre principal */
+.form-container h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1em;
+    color: black;
+}
+
+/* Sous-titres ou titres de section */
+.form-container h2 {
+    color: black;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+/* Labels */
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #444;
+}
+
+/* Champs de saisie */
+.form-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #45a1ff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #f3f3f3;
+    font-size: 1em;
+}
+
+/* Bouton de soumission / mise à jour */
+.form-container button {
+    background-color: #45a1ff;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.1em;
+}
+
+/* Liens dans la page profil (Tableau de bord, historique, etc.) */
+.form-container a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #45a1ff;
+    font-weight: bold;
+}
+
+/* Hover sur les boutons */
+.form-container button:hover {
+    background-color: #d65e00;
+    transform: scale(1.05);
+}
+
+/* Effet de clic */
+.form-container button:active {
+    transform: scale(0.98);
+}
+
+/* Footer simplement positionné sous le main, 
+   pas de position:absolute/fixed pour éviter de recouvrir le contenu */
+footer {
+    background-color: #45a1ff;
+    text-align: center;
+    color: black;
+    font-size: 0.9em;
+    padding: 10px;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

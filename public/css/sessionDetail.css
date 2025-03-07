@@ -1,0 +1,92 @@
+/* public/css/sessionDetail.css */
+
+/* Structure de base */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #d6d6d6;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Le main occupe l'espace restant, poussant le footer en bas */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Conteneur principal du détail de la session */
+.detail-container {
+    width: 800px;
+    max-width: 90%;
+    background-color: white;
+    border-radius: 15px;
+    border: 10px solid #45a1ff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+    margin: 0 auto;
+}
+
+/* Titre principal */
+.detail-container h1 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    color: black;
+}
+
+/* Tableau stylisé */
+.detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.detail-table th,
+.detail-table td {
+    border: 2px solid #45a1ff;
+    padding: 10px;
+    text-align: center;
+    font-size: 1em;
+}
+
+/* Couleur alternée sur les lignes */
+.detail-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Bouton / lien retour */
+.detail-container a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #45a1ff;
+    font-weight: bold;
+}
+
+/* Footer en bas */
+footer {
+    background-color: #45a1ff;
+    text-align: center;
+    color: black;
+    font-size: 0.9em;
+    padding: 10px;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
