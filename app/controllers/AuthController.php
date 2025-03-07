@@ -73,7 +73,7 @@ class AuthController
      */
     public function doRegister()
     {
-        require_once __DIR__ . '/../../db.php';
+        require_once __DIR__ . '/../models/db.php';
 
         $nom         = trim($_POST['nom'] ?? '');
         $prenom      = trim($_POST['prenom'] ?? '');
