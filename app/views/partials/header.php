@@ -42,7 +42,7 @@
         }
     </style>
 </head>
-<body style="background-color:grey;">
+<body>
 <header>
     <div class="header-left">
         <a href="/">Accueil</a>

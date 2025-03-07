@@ -102,12 +102,13 @@ h2 {
 
 /* Footer bien en bas */
 footer {
-    position: fixed;
+    position: relative;
     bottom: 10px;
     width: 100%;
     text-align: center;
     color: black;
     font-size: 0.9em;
+    margin-top: 25px;
 }
 
 /* Animation d'apparition */

@@ -2,7 +2,7 @@
 require __DIR__ . '/../partials/header.php';
 ?>
 
-<link rel="stylesheet" href="/css/inscription.css">
+<link rel="stylesheet" href="\css\inscription.css">
 
 <form class="form-container" action="index.php?controller=auth&action=doRegister" method="post">
     <label for="nom">Nom :</label><br>
