@@ -52,6 +52,7 @@
         <?php if (!empty($_SESSION['nom']) && !empty($_SESSION['prenom'])): ?>
             <!-- Si l'utilisateur est connecté, on affiche prénom + nom + lien déconnexion -->
             <?= htmlspecialchars($_SESSION['prenom']) . ' ' . htmlspecialchars($_SESSION['nom']); ?>
+            <a href="index.php?controller=profil&action=show">Mon Profil</a>
             <a href="index.php?controller=auth&action=logout">Déconnexion</a>
         <?php else: ?>
             <!-- Sinon, boutons Connexion & Inscription -->
