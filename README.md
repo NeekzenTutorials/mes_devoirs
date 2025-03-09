@@ -35,6 +35,8 @@ Vous pouvez récupérer un bdd.sql qui permet de générer entièrement la base 
     5. Possibilité d'accéder à l'historique des séries réalisées
     6. Possibilité d'accéder en détail à chacune des séries réalisées et afficher les réponses et corrections des questions
 
+* **Indiquation** : Pour lier un enfant et un parent, le système de notification n'est pas opérationnel, vous pouvez le faire en passer la valeur de la propriété : **statut**(type enum), de la table **Parente** à "accepte" pour visualiser son enfant depuis un profil parent. Vous pouvez le faire manuellement depuis PHPMyAdmin ou depuis un terminal sql.
+
 ## Style graphique
 
 Le style graphique est resté similaire à celui d'origine.
