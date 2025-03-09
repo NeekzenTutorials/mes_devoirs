@@ -102,7 +102,7 @@ class ModuleController
         }
 
         $_SESSION['questions'][$_SESSION['nbQuestion']] = [
-            'id_exercice' => $idExercice,  // Stocker l'ID de l'exercice
+            'id_exercice' => $idExercice,
             'question' => $questionData['question'],
             'answer' => $questionData['answer']
         ];

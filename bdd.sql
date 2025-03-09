@@ -43,6 +43,7 @@ CREATE TABLE Enfants(
 CREATE TABLE Parente(
    id_utilisateur INT,
    id_utilisateur_1 INT,
+   statut ENUM('en_attente', 'accepte', 'refuse') DEFAULT 'en_attente',
    PRIMARY KEY(id_utilisateur, id_utilisateur_1),
    FOREIGN KEY(id_utilisateur) REFERENCES Enfants(id_utilisateur),
    FOREIGN KEY(id_utilisateur_1) REFERENCES Parents(id_utilisateur)
